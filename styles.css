@@ -1,0 +1,266 @@
+
+html {
+    width: 100%;
+    height: 100vh;
+    background: rgb(68, 158, 176);
+    background-size: cover;
+    background-image: url(https://images.unsplash.com/photo-1553158399-3796bdbc82fd?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+}
+
+
+
+.Main-container {
+    font-family: "Poppons", sans-serif;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+h1{
+    background-color: black;
+    color:white;
+    text-align: center;
+    font-weight: 600;
+    font-size: 2.5rem;
+    border-radius: 15px;
+}
+
+.Main-nav {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 20px;
+    color: #454f5c;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+#start{
+    background-color: black;
+    color: white;
+    font-size: larger;
+    height: 50px;
+}
+#restart{
+    background-color: black;
+    color: white;
+    font-size: larger;
+    height: 50px;
+}
+.timer, .moves{
+    color: white;
+    font-weight: bold;
+    font-size: larger;
+    background-color: black;
+    padding: 1.8% 1%;
+    text-align: center;
+}
+
+
+.disabled {
+    color: #757575;
+    cursor: pointer;
+}
+
+button{
+    font-family: "Poppons", sans-serif;
+    font-weight: 600;
+    width: 150px;
+    height: 25px;
+    color: #23262a;
+    border: none;
+}
+
+.board-container {
+    position: relative;
+    /* top: 50%; */
+}
+
+.board,
+.win {
+    background: linear-gradient(
+        to right bottom, 
+        rgba(255, 255, 255,0.7), 
+        rgba(255,255,255,0.3) );
+    border-radius: 2rem;
+    backface-visibility: hidden;
+}
+.board {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-gap: 20px;
+}
+
+.board-container.flipped .board {
+    transform: rotateY(180deg) rotateZ(50deg);
+}
+
+.board-container.flipped .win {
+    transform: rotateY(0) rotateZ(0);
+}
+
+.card {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+    background: rgb(51, 46, 55, 0.8);
+    transition: transform .6s cubic-bezier(0.4, 0.0, 0.2, 1);
+    backface-visibility: hidden;
+}
+
+.card-back {
+    transform: rotateY(180deg) rotateZ(50deg);
+    font-size: 58pt;
+    user-select: none;
+    text-align: center;
+    line-height: 100px;
+    background-color: white;
+}
+
+.card.flipped .card-front {
+    transform: rotateY(180deg) rotateZ(50deg);
+}
+
+.card.flipped .card-back {
+    transform: rotateY(0) rotateZ(0);
+}
+
+.win {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background: linear-gradient(
+        to right bottom, 
+        rgba(255, 255, 255,0.7), 
+        rgba(255,255,255,0.3) );
+    /* transform: rotateY(180deg) rotateZ(50deg); */
+    transform: rotateY(-90deg);
+}
+
+.win-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    font-weight: 600;
+    color:black;
+}
+
+.highlight {
+    color:  darkblue;
+}
+
+
+
+
+
+
+/* Mobile Styles */
+@media (max-width: 600px) {
+    .Main-container {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+
+    .Main-nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    #start, #restart {
+        width: 100%;
+        height: 40px;
+        font-size: 1rem;
+    }
+
+    .timer, .moves {
+        font-size: 1rem;
+        padding: 1% 0.5%;
+    }
+
+    .board {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 10px;
+        padding: 10px;
+    }
+
+    .card {
+        width: 80px;
+        height: 80px;
+    }
+
+    .card-back {
+        font-size: 40pt;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Tablet Styles */
+@media (min-width: 601px) and (max-width: 900px) {
+    .Main-container {
+        padding: 20px;
+        font-size: 1rem;
+    }
+    
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    .Main-nav {
+        gap: 20px;
+    }
+
+    #start, #restart {
+        width: 120px;
+        height: 45px;
+        font-size: 1.2rem;
+    }
+
+    .timer, .moves {
+        font-size: 1.2rem;
+        padding: 1.5% 0.75%;
+    }
+
+    .board {
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 15px;
+        padding: 15px;
+    }
+
+    .card {
+        width: 90px;
+        height: 90px;
+    }
+
+    .card-back {
+        font-size: 50pt;
+    }
+}
